@@ -39,6 +39,7 @@ export class MarkNotificationSolved extends InteractionHandler {
 
         await interaction.update({
             embeds: [newEmbed],
+            components: [],
         });
 
     }
