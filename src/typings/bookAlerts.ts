@@ -12,3 +12,13 @@ export interface BookAlert {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface BookNotification {
+    bookAlertId: number;
+    discordId: string;
+    restaurantName: string;
+    date: string;
+    mealPeriod: string;
+    partyMix: number;
+    hour: string;
+}
