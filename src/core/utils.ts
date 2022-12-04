@@ -1,5 +1,5 @@
 export function frenchMealPeriod(mealPeriod: string): string {
-    switch (mealPeriod) {
+    switch (mealPeriod.toLocaleLowerCase()) {
         case 'lunch':
             return 'Déjeuner';
         case 'dinner':
