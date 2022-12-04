@@ -2,7 +2,7 @@ import { createClient } from 'redis';
 import { BookNotification } from '../typings/bookAlerts';
 import { container } from '@sapphire/framework';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder } from 'discord.js';
-import { frenchMealPeriod } from './utils';
+import { convertTime12to24, frenchMealPeriod, normalizeDate } from './utils';
 
 export async function subscribeBookNotifications() {
     const client = createClient({
@@ -34,12 +34,12 @@ export async function subscribeBookNotifications() {
             },
             {
                 name: 'Date',
-                value: bookNotification.date,
+                value: normalizeDate(bookNotification.date),
                 inline: true,
             },
             {
                 name: 'Heure',
-                value: bookNotification.hour,
+                value: convertTime12to24(bookNotification.hour),
                 inline: true,
             },
             {
