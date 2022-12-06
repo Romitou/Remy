@@ -15,8 +15,8 @@ async function start() {
     });
 
     await client.login(process.env.DISCORD_TOKEN);
-    await subscribeBookNotifications();
     await setPresence(client);
+    await subscribeBookNotifications();
 }
 
 start();
