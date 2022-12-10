@@ -3,7 +3,9 @@ import { ButtonStyle, IntentsBitField, TextInputStyle } from 'discord.js';
 import { SapphireClient } from '@sapphire/framework';
 import { subscribeBookNotifications } from './core/redis';
 import { init } from '@sentry/node';
-import { setPresence } from './core/presence';
+import { schedule } from 'node-cron';
+import updatePresence from './tasks/updatePresence';
+import sendDailyReport from './tasks/sendDailyReport';
 
 async function start() {
     init({
@@ -15,7 +17,8 @@ async function start() {
     });
 
     await client.login(process.env.DISCORD_TOKEN);
-    await setPresence(client);
+    schedule('* * * * *', updatePresence());
+    schedule('0 0 * * *', sendDailyReport());
     await subscribeBookNotifications();
 }
 
