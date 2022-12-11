@@ -17,8 +17,8 @@ async function start() {
     });
 
     await client.login(process.env.DISCORD_TOKEN);
-    schedule('* * * * *', updatePresence());
-    schedule('0 0 * * *', sendDailyReport());
+    schedule('* * * * *', updatePresence);
+    schedule('0 0 * * *', sendDailyReport);
     await subscribeBookNotifications();
 }
 

@@ -31,7 +31,7 @@ export default async function updatePresence() {
         case 1:
             client.user?.setPresence({
                 activities: [{
-                    name: `${statistics.bookAlertsCount} notifications d'utilisateurs`,
+                    name: `${statistics.bookAlertsCount} notifications`,
                     type: ActivityType.Watching,
                 }],
             });
