@@ -25,7 +25,7 @@ export async function subscribeBookNotifications() {
             .setTitle(`📬 Nouvelle notification de réservation`)
             .setColor(Colors.Navy)
             .setImage(bookNotification.restaurant.imageUrl)
-            .setFooter({ text: `Notification associée à votre notification n°${bookNotification.bookAlertId}` })
+            .setFooter({ text: `Alerte de disponibilité associée à votre notification n°${bookNotification.bookAlertId}` })
             .setDescription('▫️ Ici Rémy, une table est **actuellement disponible à la réservation** selon les critères que vous avez définis.\n▫️ Vous pouvez réserver cette table en vous rendant sur **l\'application Disneyland Paris**.\n▫️ Si vous avez réussi à **réserver cette table**, merci de me le faire savoir en **cliquant sur le bouton ci-dessous** : j\'arrêterai de vous envoyer des notifications pour ce restaurant et ce repas !');
 
         embed.setFields([
@@ -40,7 +40,7 @@ export async function subscribeBookNotifications() {
                 inline: true,
             },
             {
-                name: '😋 Heure(s)',
+                name: '🕒 Heure(s)',
                 value: bookNotification.hours.map(convertTime12to24).join(', '),
                 inline: true,
             },
